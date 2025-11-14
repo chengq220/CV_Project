@@ -27,5 +27,5 @@ def load_weights(save_path, device):
     lr = load_dict['lr']
     epoch = load_dict['epoch']
     model = load_dict['model_state_dict']
-    otimizer = load_dict['optimizer_state_dict']
-    return lr, epoch, model, otimizer
+    optimizer = load_dict['optimizer_state_dict']
+    return lr, epoch, model, optimizer
