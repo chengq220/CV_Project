@@ -21,3 +21,11 @@ def save_img_tensors_as_grid(img_tensors, nrows, f):
         img_arr[row_start:row_end, col_start:col_end] = imgs_array[idx]
 
     Image.fromarray(img_arr.astype(np.uint8), "RGB").save(f"{f}.jpg")
+
+def load_weights(save_path, device):
+    load_dict = torch.load(save_path, map_location=device)
+    lr = load_dict['lr']
+    epoch = load_dict['epoch']
+    model = load_dict['model_state_dict']
+    otimizer = load_dict['optimizer_state_dict']
+    return lr, epoch, model, otimizer
