@@ -38,7 +38,7 @@ class ResidualLatentUNet(nn.Module):
         
         with torch.no_grad():
             dummy = torch.zeros(1, 1, 28, 28, device=self.device)
-            zq, *_ = self.fullvae.quantize(dummy) 
+            zq, *_ = self.fullvae.quantize(dummy)  # you quantized the entire input image, not the latent space... 
             _, latent_ch, _, _ = zq.shape
             self.latent_ch = latent_ch 
         
